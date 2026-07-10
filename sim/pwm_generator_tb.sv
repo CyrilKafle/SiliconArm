@@ -74,6 +74,12 @@ module pwm_generator_tb;
     end
   endtask
 
+  // Waveform dump for EPWave (EDA Playground) / GTKWave.
+  initial begin
+    $dumpfile("pwm_generator_tb.vcd");
+    $dumpvars(0, pwm_generator_tb);
+  end
+
   initial begin
     rst_n    = 0;
     position = 0;

@@ -66,6 +66,12 @@ module spi_adc_reader_tb;
     while (busy) @(posedge clk);
   endtask
 
+  // Waveform dump for EPWave (EDA Playground) / GTKWave.
+  initial begin
+    $dumpfile("spi_adc_reader_tb.vcd");
+    $dumpvars(0, spi_adc_reader_tb);
+  end
+
   initial begin
     rst_n      = 0;
     start      = 0;

@@ -115,6 +115,12 @@ module p_controller_tb;
     end
   endtask
 
+  // Waveform dump for EPWave (EDA Playground) / GTKWave.
+  initial begin
+    $dumpfile("p_controller_tb.vcd");
+    $dumpvars(0, p_controller_tb);
+  end
+
   initial begin
     rst_n           = 0;
     target_position = 0;

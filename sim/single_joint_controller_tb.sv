@@ -78,6 +78,13 @@ module single_joint_controller_tb;
   int pwm_edge_count = 0;
   always @(posedge servo_pwm) pwm_edge_count++;
 
+  // --- Waveform dump for EPWave (EDA Playground) / GTKWave. Not needed for
+  // the pass/fail checks below — only for producing a viewable waveform.
+  initial begin
+    $dumpfile("single_joint_controller_tb.vcd");
+    $dumpvars(0, single_joint_controller_tb);
+  end
+
   // --- Main sequence.
   initial begin
     rst_n           = 0;
