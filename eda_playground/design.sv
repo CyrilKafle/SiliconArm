@@ -5,6 +5,8 @@
 //
 // Default CLK_FREQ_HZ matches the Tang Nano 9K's onboard 27 MHz oscillator.
 
+`timescale 1ns / 1ps
+
 module pwm_generator #(
     parameter int CLK_FREQ_HZ = 27_000_000,
     parameter int PWM_FREQ_HZ = 50
@@ -59,6 +61,8 @@ endmodule
 // do that before real hardware bring-up in Phase 1. The behavioral ADC
 // model in the testbench follows the same timing this master assumes, so a
 // passing simulation proves internal consistency, not datasheet fidelity.
+
+`timescale 1ns / 1ps
 
 module spi_adc_reader #(
     parameter int CLK_DIV = 4  // system clocks per SPI half-bit-period
@@ -190,6 +194,8 @@ endmodule
 // kill steady-state error, and derivative term to damp oscillation under
 // load) is the natural Phase 2 upgrade once this is proven in hardware.
 
+`timescale 1ns / 1ps
+
 module p_controller #(
     parameter int KP_Q8 = 64  // proportional gain, Q8 fixed point (64/256 = 0.25)
 ) (
@@ -242,6 +248,8 @@ endmodule
 // clocks) finishes in a tiny fraction of a single 540,000-cycle control
 // period, so `tick` is gated on `!adc_busy` purely as cheap defensive
 // practice, not because the margin is actually tight.
+
+`timescale 1ns / 1ps
 
 module single_joint_controller #(
     parameter int CLK_FREQ_HZ     = 27_000_000,

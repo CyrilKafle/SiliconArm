@@ -10,6 +10,8 @@
 // period, so `tick` is gated on `!adc_busy` purely as cheap defensive
 // practice, not because the margin is actually tight.
 
+`timescale 1ns / 1ps
+
 module single_joint_controller #(
     parameter int CLK_FREQ_HZ     = 27_000_000,
     parameter int CONTROL_FREQ_HZ = 50,

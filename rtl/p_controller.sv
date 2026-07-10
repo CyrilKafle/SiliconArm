@@ -12,6 +12,8 @@
 // kill steady-state error, and derivative term to damp oscillation under
 // load) is the natural Phase 2 upgrade once this is proven in hardware.
 
+`timescale 1ns / 1ps
+
 module p_controller #(
     parameter int KP_Q8 = 64  // proportional gain, Q8 fixed point (64/256 = 0.25)
 ) (

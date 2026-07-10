@@ -5,6 +5,8 @@
 // positions spi_adc_reader expects: 5 command bits + 1 null bit are ignored,
 // then bits 6-17 (0-indexed) carry the 12 data bits.
 
+`timescale 1ns / 1ps
+
 module mcp3208_model (
     input  logic        sclk,
     input  logic        cs_n,
