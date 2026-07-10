@@ -8,6 +8,10 @@ Full design rationale, alternatives considered, and phased plan: [`DESIGN.md`](D
 
 Phase 0 — a single joint's closed-loop control datapath — is designed and fully verified in simulation, with no physical hardware purchased yet (deliberately: validate in simulation first, buy parts second). See [`docs/PHASE0_NOTES.md`](docs/PHASE0_NOTES.md) for two real bugs found and fixed along the way, and [`SKILLS_LOG.md`](SKILLS_LOG.md) for what was learned.
 
+![PWM generator waveform: position command changing from 0 to 800 (hex) visibly widens the pwm_out pulse](docs/images/phase0_pwm_waveform.png)
+
+`position[11:0]` steps from `000` to `800` mid-simulation — note `pwm_out`'s pulse width visibly widening right after, proving the commanded position actually controls servo pulse width. Captured in [EDA Playground](https://www.edaplayground.com) running the same Icarus Verilog testbench as `scripts/run_sims.sh`.
+
 ```
 rtl/pwm_generator.sv           50 Hz servo PWM generator
 rtl/spi_adc_reader.sv          SPI master reading position feedback (MCP3208-class ADC)
